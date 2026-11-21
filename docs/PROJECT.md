@@ -72,10 +72,11 @@ serif display type, paper textures, brown palettes, ornate decoration.
   roof close-up, share image = postcard.
 - Theme photos (owner's choice, 2026-11-22) from **Unsplash** (Unsplash License: free use, no attribution required;
   credited in `artwork.ts`): 01 Places = Bukchon hanok lane (Jean Carlo Emer), 02 Seasons = Myeongdong street
-  (Nik V), 03 Culture & Everyday = Seoul corner café (Bundo Kim); 04 Postcards & Art = stationery crop. Sources in
-  the owner's Downloads; `npm run images -- "<Mail Club>" "<Downloads>"`.
+  (Nik V), 03 Culture & Everyday = Seoul corner café (Bundo Kim); 04 Postcards & Art = stationery crop. Originals were in
+  the owner's Downloads (moved since; the script skips missing files and keeps the web versions);
+  `npm run images -- "<Mail Club>" "<folder with photos + stamp>"`.
 - CTA labels: header and hero primary button say **"Get a Free Postcard"** (owner, 2026-11-22).
-- **Logo / favicon** (owner, 2026-11-22): "Cherry Blossom Sunset Stamp Icon.png", cropped to the stamp by
+- **Logo / favicon** (owner, 2026-11-22): "Cherry Blossom Sunset Stamp Icon.png" (second source folder), cropped to the stamp by
   `npm run images` → `public/images/logo-stamp-{96,192}.png` (wordmark in header/footer, share image),
   `src/app/icon.png` (favicon, 128 px) and `src/app/apple-icon.png` (180 px on white for iOS).
 - No analytics or cookies at launch (privacy notice says so; update it if that changes). Tally may set its own cookies inside the embed.
@@ -88,6 +89,8 @@ Planned: same as Clínica/Personal — `out/` → Nginx container behind Traefik
 
 ## Current state
 
-Initial build on `main` (`4ee28a1`). On `feat/postcard-registration` (uncommitted, 2026-11-22): modern white/pastel
-visual refresh, domain + socials + contact email, MailerLite and `/welcome/` removed, Tally registration section +
-privacy rewrite. Tally form `4aKrAB` embedded (owner's decision). Real artwork in place; gradients removed. Awaiting: form cleanup in Tally,  DNS + deployment.
+*Pre-launch, not deployed.* `main` holds the complete site (merged 2026-11-22, `1e81cc3`): six-section landing page
+with the approved copy, modern white/navy/pastel design, Tally registration (`4aKrAB` → Google Sheets), privacy
+notice, owner's illustrations + Unsplash photos, stamp logo/favicon, share image. `npm run check` passes.
+Local-only repository (no GitHub remote yet). Launch blockers: Tally form cleanup, DNS + MX records, VPS setup
+(`docs/TODO.md`).

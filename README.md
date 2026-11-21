@@ -1,16 +1,16 @@
 # Korea Mail Club
 
 Landing page for Korea Mail Club — a personal creative project sharing postcards, photos and little discoveries
-from South Korea — whose main job is turning visitors from Instagram/Facebook into confirmed MailerLite subscribers.
+from South Korea — where visitors from Instagram/Facebook register (free) to receive a postcard from Korea, via an embedded Tally form.
 
 - **Project facts, decisions, setup:** [`docs/PROJECT.md`](docs/PROJECT.md)
 - **Tasks and blockers:** [`docs/TODO.md`](docs/TODO.md)
 - **Rules for coding agents:** [`AGENTS.md`](AGENTS.md)
-- **Welcome email for MailerLite:** [`docs/email/welcome-email.html`](docs/email/welcome-email.html)
+- **Tally forms + Google Sheets setup:** [`docs/forms/README.md`](docs/forms/README.md)
 
 ## Run and check
 
-Requires Node 22 (`.nvmrc`). Copy `.env.example` to `.env.local` and fill in what you have (all optional for local work).
+Requires Node 22 (`.nvmrc`). Public settings live in `src/shared/config/site.ts`; `.env.example` lists optional overrides.
 
 ```bash
 npm ci
@@ -21,8 +21,9 @@ npm run check      # lint + typecheck + tests + build + smoke — must pass befo
 | Script | What it does |
 |---|---|
 | `npm run build` | Static export to `out/` |
-| `npm run test` | Vitest unit tests (signup validation + MailerLite payload, config) |
-| `npm run smoke` | Checks `out/`: every page exists, welcome is `noindex`, no placeholder text or empty links |
+| `npm run test` | Vitest unit tests (Tally embed URL + submit event, config) |
+| `npm run images -- "<Mail Club>" "<Downloads>"` | Rebuilds `public/images/` from the original artwork and photos (crop, white background for illustrations, two widths) |
+| `npm run smoke` | Checks `out/`: every page exists, Tally registration form embedded, no placeholders or retired integrations |
 
 ## Deployment
 

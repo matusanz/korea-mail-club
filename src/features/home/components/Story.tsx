@@ -1,26 +1,24 @@
-import { Artwork } from "@/shared/components/Artwork";
+import { Picture } from "@/shared/components/Picture";
 import { artwork } from "../artwork";
 
 export function Story() {
-  const art = artwork.story;
   return (
-    <section id="story" aria-labelledby="story-title" className="border-t border-line/70">
+    <section id="story" aria-labelledby="story-title" className="bg-mist">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 sm:px-8 md:grid-cols-[0.85fr_1fr] md:gap-16 lg:py-28">
-        <figure className="order-2 md:order-1">
-          <div className="mx-auto aspect-[4/5] max-w-sm overflow-hidden bg-paper p-3 shadow-soft md:max-w-none">
-            <Artwork scene={art.scene} src={art.src} alt={art.alt} />
-          </div>
-          <figcaption className="mt-4 text-center font-serif text-base italic text-muted">
-            A quiet street, somewhere in Seoul.
-          </figcaption>
+        <figure className="order-2 mx-auto w-full max-w-sm md:order-1 md:max-w-none">
+          <Picture
+            image={artwork.gatePoster}
+            sizes="(min-width: 768px) 440px, 90vw"
+            className="h-auto w-full rounded-sm mix-blend-multiply"
+          />
         </figure>
 
         <div className="order-1 max-w-xl md:order-2">
           <p className="eyebrow">Our story</p>
-          <h2 id="story-title" className="mt-5 text-4xl sm:text-5xl">
+          <h2 id="story-title" className="mt-4 text-4xl sm:text-5xl">
             A little story from Korea
           </h2>
-          <div className="mt-8 space-y-5 text-muted">
+          <div className="mt-8 space-y-5 text-slate">
             <p>Living in Korea means discovering something new all the time.</p>
             <p>
               Sometimes it’s a quiet street tucked away in Seoul. Sometimes it’s a little café, an old building, a beautiful
@@ -32,7 +30,7 @@ export function Story() {
               A small creative project to share the Korea I get to experience, one postcard and little discovery at a time.
             </p>
           </div>
-          <p className="mt-9 border-l-2 border-rose pl-5 font-serif text-2xl leading-snug text-ink">
+          <p className="mt-9 border-l-[3px] border-peach pl-5 font-display text-xl font-semibold leading-snug text-ink sm:text-2xl">
             Nothing complicated. Just a little something from Korea, shared with love.
           </p>
         </div>

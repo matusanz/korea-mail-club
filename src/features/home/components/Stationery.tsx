@@ -1,16 +1,4 @@
-/** Paper envelope seen partly behind a postcard. Decorative. */
-export function Envelope({ className = "" }: { className?: string }) {
-  return (
-    <div aria-hidden="true" className={`overflow-hidden border border-line bg-[#fbf8f3] shadow-soft ${className}`}>
-      <svg viewBox="0 0 100 60" preserveAspectRatio="none" className="h-full w-full">
-        <path d="M0 0 L50 34 L100 0" fill="none" stroke="#e7ded3" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
-        <path d="M0 60 L38 26 M100 60 L62 26" fill="none" stroke="#efe7dc" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
-      </svg>
-    </div>
-  );
-}
-
-/** A small perforated postage stamp with a stylised roofline. Decorative. */
+/** A small perforated postage stamp in the postcard palette. Decorative. */
 export function StampMark({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 80 96" aria-hidden="true" className={`drop-shadow-sm ${className}`}>
@@ -32,12 +20,12 @@ export function StampMark({ className = "" }: { className?: string }) {
         </mask>
       </defs>
       <rect width="80" height="96" fill="#fff" mask="url(#perf)" />
-      <rect x="8" y="8" width="64" height="80" fill="#efd7d2" />
-      <circle cx="54" cy="28" r="9" fill="#d7a39c" />
-      <path d="M14 60 Q40 68 66 60 L58 52 H22Z" fill="#5e5752" />
-      <rect x="24" y="60" width="32" height="12" fill="#f6ede4" />
-      <path d="M8 76 H72" stroke="#aabbc7" strokeWidth="6" />
-      <text x="40" y="86" textAnchor="middle" fontSize="6" letterSpacing="1.5" fill="#6e645c" fontFamily="var(--font-sans)">
+      <rect x="8" y="8" width="64" height="80" fill="#e7b89c" />
+      <circle cx="52" cy="30" r="10" fill="#f3db95" />
+      <path d="M8 66 C24 56 44 58 72 64 V88 H8Z" fill="#697190" />
+      <path d="M16 62 Q40 70 64 62 L56 54 H24Z" fill="#1d2335" />
+      <rect x="25" y="62" width="30" height="10" fill="#fff5f0" />
+      <text x="40" y="84" textAnchor="middle" fontSize="6.5" fontWeight="700" letterSpacing="1.5" fill="#fff" fontFamily="var(--font-sans)">
         KOREA
       </text>
     </svg>

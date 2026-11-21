@@ -10,32 +10,31 @@ export function SiteFooter() {
     contactLinks.email && { href: `mailto:${contactLinks.email}`, label: "Email", external: false },
   ].filter(Boolean) as { href: string; label: string; external: boolean }[];
 
+  const linkClass = "text-slate transition-colors hover:text-ink";
+
   return (
-    <footer className="border-t border-line bg-ivory">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-5 py-14 text-center sm:px-8">
-        <Wordmark />
-        <p className="font-serif text-lg italic text-muted">{siteConfig.tagline}.</p>
-        <nav aria-label="Footer" className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-sm">
+    <footer className="border-t border-line bg-white">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-12 sm:px-8 md:flex-row md:items-start md:justify-between">
+        <div className="space-y-2">
+          <Wordmark className="text-[0.85rem]" />
+          <p className="text-sm text-slate">{siteConfig.tagline}.</p>
+        </div>
+        <nav aria-label="Footer" className="flex flex-wrap gap-x-7 gap-y-2 text-sm font-medium">
           {links.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className="text-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
-            >
+            <a key={l.label} href={l.href} {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className={linkClass}>
               {l.label}
             </a>
           ))}
-          <Link href="/privacy/" className="text-muted underline-offset-4 transition-colors hover:text-ink hover:underline">
+          <Link href="/privacy/" className={linkClass}>
             Privacy Policy
           </Link>
         </nav>
-        <div className="space-y-1 text-xs tracking-wide text-muted">
-          <p>Made in South Korea, shared with the world.</p>
-          <p>
-            © {new Date().getFullYear()} {siteConfig.name}
-          </p>
-        </div>
+      </div>
+      <div className="mx-auto flex max-w-6xl flex-col gap-1 border-t border-line px-5 py-6 text-xs text-slate sm:flex-row sm:justify-between sm:px-8">
+        <p>Made in South Korea, shared with the world.</p>
+        <p>
+          © {new Date().getFullYear()} {siteConfig.name}
+        </p>
       </div>
     </footer>
   );

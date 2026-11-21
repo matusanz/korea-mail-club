@@ -1,9 +1,10 @@
 import Link from "next/link";
 
-/** "KOREA MAIL CLUB" in spaced uppercase serif — the brand's wordmark. */
+/** "KOREA MAIL CLUB" wordmark: spaced uppercase sans with a small sun mark. */
 export function Wordmark({ className = "" }: { className?: string }) {
   return (
-    <Link href="/" className={`font-serif text-[1.05rem] font-semibold uppercase tracking-[0.24em] text-ink ${className}`}>
+    <Link href="/" className={`inline-flex items-center gap-2.5 font-display font-bold uppercase tracking-[0.18em] text-ink ${className}`}>
+      <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-peach ring-[3px] ring-sun/70" />
       Korea Mail Club
     </Link>
   );

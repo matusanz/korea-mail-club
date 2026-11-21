@@ -2,28 +2,25 @@
 
 /*
  * Korea Mail Club design tokens (docs/PROJECT.md → Design).
- * Cream/white paper surfaces, warm charcoal ink, muted rose / blue-gray / terracotta accents.
- * Text colors are checked for WCAG AA on ivory and cream.
+ * White page, light-gray secondary surfaces, navy type. Colour comes from the pastel
+ * illustrations (palace postcard): slate blue, peach, dusty pink, soft yellow.
  */
 @theme {
-  --color-ivory: #faf7f2;
-  --color-cream: #f2ebe2;
-  --color-paper: #ffffff;
-  --color-ink: #332d29;
-  --color-muted: #6e645c; /* taupe, darkened from #756B63 for AA on cream */
-  --color-rose: #d7a39c;
-  --color-rose-soft: #efd7d2;
-  --color-sky: #aabbc7;
-  --color-sky-soft: #dde5eb;
-  --color-terracotta: #b87567;
-  --color-terracotta-ink: #9a5a4c; /* AA on ivory for small accent text */
-  --color-line: #e7ded3;
+  --color-white: #ffffff;
+  --color-mist: #f7f7f7; /* secondary surfaces */
+  --color-ink: #1d2335; /* navy text */
+  --color-slate: #697190; /* secondary text (AA on white and mist) */
+  --color-peach: #e7b89c;
+  --color-pink: #d3b2ad;
+  --color-sun: #f3db95;
+  --color-accent: #b4664b; /* peach deepened for small text/links: AA on white */
+  --color-line: #e9eaee;
 
-  --font-serif: var(--font-cormorant), "Cormorant Garamond", "EB Garamond", Georgia, serif;
-  --font-sans: var(--font-dm-sans), "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: var(--font-inter), "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-manrope), "Manrope", var(--font-inter), system-ui, sans-serif;
 
-  --shadow-card: 0 1px 2px rgb(51 45 41 / 0.06), 0 12px 32px -12px rgb(51 45 41 / 0.18);
-  --shadow-soft: 0 1px 2px rgb(51 45 41 / 0.05), 0 6px 18px -10px rgb(51 45 41 / 0.16);
+  --shadow-card: 0 1px 2px rgb(29 35 53 / 0.05), 0 16px 40px -16px rgb(29 35 53 / 0.18);
+  --shadow-soft: 0 1px 2px rgb(29 35 53 / 0.04), 0 8px 24px -14px rgb(29 35 53 / 0.14);
 }
 
 @layer base {
@@ -34,14 +31,13 @@
 
   /* Anchored sections clear the sticky header. */
   section[id] {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 4.5rem;
   }
 
   body {
-    background-color: var(--color-ivory);
+    background-color: var(--color-white);
     color: var(--color-ink);
     font-family: var(--font-sans);
-    font-weight: 400;
     font-size: 1.0625rem;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
@@ -52,10 +48,10 @@
   h1,
   h2,
   h3 {
-    font-family: var(--font-serif);
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    line-height: 1.08;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
     text-wrap: balance;
   }
 
@@ -64,13 +60,13 @@
   }
 
   ::selection {
-    background: var(--color-rose-soft);
+    background: rgb(243 219 149 / 0.6);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-terracotta-ink);
+    outline: 2px solid var(--color-ink);
     outline-offset: 3px;
-    border-radius: 2px;
+    border-radius: 4px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -88,20 +84,14 @@
 }
 
 @layer components {
-  /* Small spaced uppercase label used for eyebrows and captions. */
+  /* Small uppercase label for eyebrows. */
   .eyebrow {
     font-family: var(--font-sans);
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--color-muted);
-  }
-
-  /* Very faint paper grain for cream sections (inline SVG noise, no network request). */
-  .paper {
-    background-color: var(--color-cream);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .38 0 0 0 0 .3 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    color: var(--color-slate);
   }
 
   .btn {
@@ -110,23 +100,23 @@
     justify-content: center;
     gap: 0.5rem;
     min-height: 3rem;
-    padding: 0.8rem 1.6rem;
-    border-radius: 999px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.625rem;
     font-size: 0.95rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
+    font-weight: 600;
     transition:
-      background-color 200ms ease,
-      color 200ms ease,
-      border-color 200ms ease,
-      transform 200ms ease;
+      background-color 180ms ease,
+      color 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease;
   }
   .btn-primary {
     background: var(--color-ink);
-    color: var(--color-ivory);
+    color: var(--color-white);
   }
   .btn-primary:hover {
-    background: #4a423c;
+    background: #2e3650;
+    box-shadow: var(--shadow-soft);
   }
   .btn-primary:disabled {
     opacity: 0.6;
@@ -135,26 +125,25 @@
   .btn-ghost {
     border: 1px solid var(--color-line);
     color: var(--color-ink);
-    background: transparent;
+    background: var(--color-white);
   }
   .btn-ghost:hover {
-    border-color: var(--color-rose);
-    background: var(--color-paper);
+    border-color: var(--color-slate);
   }
 
   /* Gentle entrance; disabled automatically by the reduced-motion rule above. */
   .rise {
-    animation: rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation: rise 800ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
   .rise-delay {
-    animation-delay: 150ms;
+    animation-delay: 120ms;
   }
 }
 
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;

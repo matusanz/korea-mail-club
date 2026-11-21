@@ -22,7 +22,7 @@ Read this, `README.md`, `docs/PROJECT.md` and `docs/TODO.md` before working.
 - Next.js 16 App Router, React 19, strict TypeScript, Tailwind CSS 4, npm. **Static export** (`out/`).
 - `src/app/` — thin routes: metadata + render one feature component; sitemap, robots, OG image.
 - `src/features/<feature>/` — `home` (landing sections + Tally registration embed), `privacy`.
-- `src/shared/` — header/footer, artwork, postcard, config (`config/site.ts`), SEO helper, styles.
+- `src/shared/` — header/footer, `Picture`, config (`config/site.ts`), SEO helper, styles.
 - Imports flow `app → features → shared` only (ESLint boundaries). No barrel files. `@/` alias.
 - Server Components by default; `'use client'` only for the Tally embed.
 - New public page: unique `title`/`description`, canonical, add it to `src/app/sitemap.ts`.
@@ -52,7 +52,7 @@ npm run check      # lint + typecheck + tests + build + smoke of out/ — must p
   (`src/shared/config/site.ts`); `npm run smoke` fails on lorem ipsum, empty or `#` links.
 - **Registration:** Tally + private Google Sheets only (`docs/forms/README.md`). No MailerLite, newsletters,
   campaigns, own database, accounts or payments. Never promise a postcard: registering is interest only.
-- **Images:** only artwork/photos the owner made or has rights to. Swap placeholders in
-  `src/features/home/artwork.ts`.
+- **Images:** only the owner's artwork (or images with established rights), added via `npm run images` and
+  `src/features/home/artwork.ts`. No gradients, glows or blur in the UI.
 - The public Tally form `4aKrAB` collects postal addresses from every registrant (owner's decision, 2026-11-22);
   keep the `#join` copy, thank-you text and privacy notice consistent with what the form collects.

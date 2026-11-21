@@ -1,16 +1,16 @@
-import { Artwork } from "@/shared/components/Artwork";
+import { Picture } from "@/shared/components/Picture";
 import { artwork } from "../artwork";
 
 export function Story() {
-  const art = artwork.story;
   return (
     <section id="story" aria-labelledby="story-title" className="bg-mist">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 sm:px-8 md:grid-cols-[0.85fr_1fr] md:gap-16 lg:py-28">
-        <figure className="order-2 md:order-1">
-          <div className="mx-auto aspect-[4/5] max-w-sm overflow-hidden rounded-2xl shadow-soft md:max-w-none">
-            <Artwork scene={art.scene} src={art.src} alt={art.alt} />
-          </div>
-          <figcaption className="mt-4 text-center text-sm text-slate">A quiet street, somewhere in Seoul.</figcaption>
+        <figure className="order-2 mx-auto w-full max-w-sm md:order-1 md:max-w-none">
+          <Picture
+            image={artwork.gatePoster}
+            sizes="(min-width: 768px) 440px, 90vw"
+            className="h-auto w-full rounded-sm mix-blend-multiply"
+          />
         </figure>
 
         <div className="order-1 max-w-xl md:order-2">

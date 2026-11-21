@@ -18,9 +18,8 @@ selected: postcard.
 - Next.js 16 App Router, React 19, strict TypeScript, Tailwind CSS 4, npm, Node 22.
 - Output: **static export** (`out/`), served by Nginx. No server code: registration is an embedded Tally form.
 - Features: `home` (`src/features/home/`: Hero, Story, Pieces, PostcardFeature, Join + `TallyForm`, Note;
-  `artwork.ts` image slots; `lib/tally.ts` embed URL + submit-event check) · `privacy` (privacy notice).
-- Shared: `SiteHeader`, `SiteFooter`, `Wordmark`, `Artwork` (placeholder SVG illustrations), `Postcard`,
-  `config/site.ts` (env-driven links), `lib/seo.ts`, `styles/globals.css` (tokens).
+  `artwork.ts` image catalogue; `lib/tally.ts` embed URL + submit-event check) · `privacy` (privacy notice).
+- Shared: `SiteHeader`, `SiteFooter`, `Wordmark`, `Picture` (responsive `<img srcset>`), `config/site.ts` (env-driven links), `lib/seo.ts`, `styles/globals.css` (tokens).
 - Routes: `/`, `/privacy/`, `404`, `/sitemap.xml`, `/robots.txt`,
   `/opengraph-image` (1200×630 PNG share card, rendered at build with `src/shared/assets/` Manrope, OFL).
 
@@ -58,16 +57,19 @@ Replaced MailerLite (owner, 2026-11-22). Setup and form specs: [`docs/forms/READ
 direction). White page, `mist #F7F7F7` secondary sections, navy `ink #1D2335` text, `slate #697190` secondary text;
 supporting colours from the palace postcard: `peach #E7B89C`, `pink #D3B2AD`, `sun #F3DB95`, `accent #B4664B`
 (peach deepened for small text, AA). Manrope 600/700 headings, Inter body (`next/font`, self-hosted). Colour comes from
-the illustrations, not tinted backgrounds; only soft sun/peach glows behind postcards. Postcards keep clean white
-borders + subtle shadow; 10px buttons, 12px inputs, rounded-2xl image cards. Avoid: ivory/beige/cream backgrounds,
+the artwork, not tinted backgrounds. **No gradients, glows or blur** (owner, 2026-11-22); solid white header. 10px buttons, 12px inputs, rounded-2xl image cards. Avoid: ivory/beige/cream backgrounds,
 serif display type, paper textures, brown palettes, ornate decoration.
 
 ## Decisions and exceptions
 
 - `docs/forms/` holds the Tally form specs, Google Sheets setup, recipient email and deletion routine (not code).
 - `src/shared/assets/` holds Manrope SemiBold (OFL) for the build-time OG image (Satori needs a static TTF).
-- Images: **placeholder illustrations** (original SVG, drawn for this repo) until the owner's palace postcard and
-  photos are supplied; swap via `src/features/home/artwork.ts` + `public/images/`. No third-party images.
+- Images: the owner's four palace-gate illustrations (supplied 2026-11-22: "Sunset Palace Gate Postcard",
+  "Gwanghwamun Gate at Sunset", "Korean Palace Sunset Stationery Scene", "Serene Gyeongbokgung Spring Courtyard").
+  Originals stay outside the repo (owner's `Mail Club/` folder); `npm run images -- "<folder>"`
+  (`scripts/optimize-images.mts`, sharp) crops, lifts the near-white background to pure white and writes two JPEG
+  widths to `public/images/`. Placement: hero = postcard, Story = poster, Postcard section = stationery scene +
+  roof close-up, the four themes = crops (`Pieces.tsx`), share image = postcard. No third-party images.
 - No analytics or cookies at launch (privacy notice says so; update it if that changes). Tally may set its own cookies inside the embed.
 - Retention promised in the privacy notice: registrations (incl. addresses) while the project runs, deleted on request or when the project ends.
 
@@ -80,4 +82,4 @@ Planned: same as Clínica/Personal — `out/` → Nginx container behind Traefik
 
 Initial build on `main` (`4ee28a1`). On `feat/postcard-registration` (uncommitted, 2026-11-22): modern white/pastel
 visual refresh, domain + socials + contact email, MailerLite and `/welcome/` removed, Tally registration section +
-privacy rewrite. Tally form `4aKrAB` embedded (owner's decision). Awaiting: form cleanup in Tally, real artwork, DNS + deployment.
+privacy rewrite. Tally form `4aKrAB` embedded (owner's decision). Real artwork in place; gradients removed. Awaiting: form cleanup in Tally, more varied artwork (themes reuse crops), DNS + deployment.

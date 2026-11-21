@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { contactLinks, tallyConfig } from "@/shared/config/site";
-import { StampMark } from "./Stationery";
 import { TallyForm } from "./TallyForm";
 
 /**
@@ -12,10 +11,7 @@ export function Join() {
   return (
     <section id="join" aria-labelledby="join-title">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
-        <div className="relative mx-auto max-w-2xl overflow-hidden rounded-3xl border border-line bg-white px-6 py-12 shadow-card sm:px-14 sm:py-16">
-          <span aria-hidden="true" className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-sun/35 blur-2xl" />
-          <span aria-hidden="true" className="absolute -bottom-20 -left-16 h-52 w-52 rounded-full bg-peach/25 blur-2xl" />
-          <StampMark className="absolute right-6 top-6 hidden w-12 rotate-6 sm:block" />
+        <div className="mx-auto max-w-2xl rounded-3xl border border-line bg-white px-6 py-12 shadow-card sm:px-14 sm:py-16">
 
           <div className="relative text-center">
             <p className="eyebrow">Free to register</p>

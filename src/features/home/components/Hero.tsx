@@ -1,12 +1,10 @@
-import { Postcard } from "@/shared/components/Postcard";
+import { Picture } from "@/shared/components/Picture";
 import { artwork } from "../artwork";
-import { StampMark } from "./Stationery";
 
 export function Hero() {
-  const art = artwork.palacePostcard;
   return (
     <section aria-labelledby="hero-title" className="relative overflow-hidden">
-      <div className="mx-auto grid max-w-6xl items-center gap-14 px-5 pb-20 pt-12 sm:px-8 md:pt-16 lg:grid-cols-[1fr_1.05fr] lg:gap-16 lg:pb-28 lg:pt-24">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-12 sm:px-8 md:pt-16 lg:grid-cols-[1fr_1.1fr] lg:gap-12 lg:pb-28 lg:pt-20">
         <div className="rise max-w-xl">
           <p className="eyebrow">Postcards &amp; little discoveries from South Korea</p>
           <h1 id="hero-title" className="mt-5 text-[2.6rem] sm:text-6xl lg:text-[4.1rem]">
@@ -31,11 +29,13 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="rise rise-delay relative mx-auto w-full max-w-[34rem] py-4">
-          <span aria-hidden="true" className="absolute -right-10 -top-6 h-40 w-40 rounded-full bg-sun/40 blur-2xl" />
-          <span aria-hidden="true" className="absolute -bottom-8 -left-8 h-44 w-44 rounded-full bg-pink/35 blur-2xl" />
-          <Postcard scene={art.scene} src={art.src} alt={art.alt} tilt={2} priority className="relative hover:rotate-0" />
-          <StampMark className="absolute -right-2 -top-2 w-[17%] rotate-6 sm:-right-4" />
+        <div className="rise rise-delay mx-auto w-full max-w-[38rem]">
+          <Picture
+            image={artwork.heroPostcard}
+            sizes="(min-width: 1024px) 600px, (min-width: 640px) 80vw, 100vw"
+            priority
+            className="h-auto w-full"
+          />
         </div>
       </div>
     </section>

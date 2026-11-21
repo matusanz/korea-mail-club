@@ -9,9 +9,9 @@ Legend: 👤 needs the owner · 🛠 development work
 
 ## Next priorities
 
-- [ ] 👤 **Artwork:** send the palace postcard illustration (hero, postcard section, share image) and 4–5 own photos
-      or illustrations for Story + the four themes. 🛠 then add to `public/images/`, set `src`/`alt` in
-      `src/features/home/artwork.ts`, regenerate the OG image from the real postcard.
+- [x] 👤 Artwork: four palace-gate illustrations added (2026-11-22) via `npm run images`.
+- [ ] 👤 More varied artwork for the four themes (streets, seasons, café/culture, postcards) — they reuse crops of
+      the same gate for now; add files to `scripts/optimize-images.mts` + `src/features/home/artwork.ts`.
 - [x] 👤 Public Tally form `4aKrAB` embedded, collecting addresses from everyone (owner's decision, 2026-11-22).
 - [ ] 👤 **Tally cleanup** (`docs/forms/README.md`): delete "Untitled checkboxes field", State optional, news
       checkbox optional/unticked, design colours/font, connect the private Google Sheet.
@@ -31,5 +31,5 @@ Legend: 👤 needs the owner · 🛠 development work
 
 ## Last session
 
-- 2026-11-22: initial build committed (`4ee28a1`); visual refresh; MailerLite replaced by Tally (+ Sheets) with own
-  thank-you on submit, privacy rewritten, forms guide added. `npm run check` passes. Embedded `4aKrAB` (addresses from everyone, owner's decision). Tally embed not visually verified.
+- 2026-11-22: committed `d95d915` (visual refresh + Tally). Then: real artwork placed (`npm run images`), share image
+  from the real postcard, all gradients/glows/blur removed. `npm run check` passes; checked 1440px and 390px.

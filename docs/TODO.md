@@ -10,8 +10,9 @@ Legend: 👤 needs the owner · 🛠 development work
 ## Next priorities
 
 - [x] 👤 Artwork: four palace-gate illustrations added (2026-11-22) via `npm run images`.
-- [ ] 👤 More varied artwork for the four themes (streets, seasons, café/culture, postcards) — they reuse crops of
-      the same gate for now; add files to `scripts/optimize-images.mts` + `src/features/home/artwork.ts`.
+- [x] 👤 Theme photos (Unsplash) for Places, Seasons, Culture (2026-11-22).
+- [x] 👤 Logo/favicon: cherry blossom stamp (2026-11-22).
+- [ ] 👤 Optional: a truly seasonal image for "Seasons & Moments" (now a Myeongdong street photo).
 - [x] 👤 Public Tally form `4aKrAB` embedded, collecting addresses from everyone (owner's decision, 2026-11-22).
 - [ ] 👤 **Tally cleanup** (`docs/forms/README.md`): delete "Untitled checkboxes field", State optional, news
       checkbox optional/unticked, design colours/font, connect the private Google Sheet.
@@ -31,5 +32,5 @@ Legend: 👤 needs the owner · 🛠 development work
 
 ## Last session
 
-- 2026-11-22: committed `d95d915` (visual refresh + Tally). Then: real artwork placed (`npm run images`), share image
-  from the real postcard, all gradients/glows/blur removed. `npm run check` passes; checked 1440px and 390px.
+- 2026-11-22: commits `d95d915`, `9fcbca7`; then Unsplash theme photos, CTAs → "Get a Free Postcard", unused spring
+  illustration removed from the site; stamp logo + favicon. `npm run check` passes.

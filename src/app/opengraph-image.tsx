@@ -12,18 +12,20 @@ export const contentType = "image/png";
 /** Share preview (Instagram/Facebook/WhatsApp): brand name, tagline and the owner's palace postcard. */
 export default async function OpenGraphImage() {
   const root = process.cwd();
-  const [manrope, postcard] = await Promise.all([
+  const [manrope, postcard, logo] = await Promise.all([
     readFile(join(root, "src/shared/assets/Manrope-SemiBold-latin.ttf")),
     readFile(join(root, "public/images/postcard-gate-sunset-1008.jpg")),
+    readFile(join(root, "public/images/logo-stamp-192.png")),
   ]);
   const postcardSrc = `data:image/jpeg;base64,${postcard.toString("base64")}`;
+  const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
 
   return new ImageResponse(
     (
       <div style={{ display: "flex", width: "100%", height: "100%", background: "#FFFFFF", fontFamily: "Manrope" }}>
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", width: 470, paddingLeft: 72 }}>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <div style={{ width: 16, height: 16, borderRadius: 8, background: "#E7B89C" }} />
+            <img width={56} height={56} alt="" src={logoSrc} />
             <div style={{ fontSize: 19, letterSpacing: 4, color: "#697190", marginLeft: 14 }}>FROM SEOUL, WITH LOVE</div>
           </div>
           <div style={{ fontSize: 68, lineHeight: 1.02, color: "#1D2335", marginTop: 28, letterSpacing: -1 }}>Korea Mail Club</div>

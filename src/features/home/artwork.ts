@@ -1,6 +1,8 @@
 /**
- * The owner's Korea Mail Club artwork (supplied 2026-11-22; originals kept outside the repo in
- * "Mail Club/" on the owner's Mac). Web versions in public/images/ (JPEG, two widths each).
+ * Korea Mail Club images. Illustrations: the owner's artwork (supplied 2026-11-22; originals kept in
+ * "Mail Club/" on the owner's Mac). Photos: chosen by the owner from Unsplash (Unsplash License:
+ * free to use, no attribution required — credited here anyway). Web versions in public/images/
+ * (JPEG, two widths each, `npm run images`).
  * Add new artwork the same way: export two widths, then add an entry here with an accurate alt.
  */
 import type { ArtImage } from "@/shared/components/Picture";
@@ -29,11 +31,25 @@ export const artwork = {
     height: 941,
     alt: "A Korea Mail Club postcard of a palace gate at sunset resting on a blue envelope, with a cherry blossom stamp, a blossom branch and pink washi tape",
   },
-  /** "Serene Gyeongbokgung Spring Courtyard" — square, cherry blossoms. */
-  springCourtyard: {
-    srcs: set("spring-courtyard", [700, 1254]),
-    width: 1254,
-    height: 1254,
-    alt: "Illustration of a palace gate in spring, framed by cherry blossom branches with petals drifting across a pastel sky",
+  /** Photo by Jean Carlo Emer on Unsplash (Ds0_4JCFGfQ) — Bukchon Hanok Village with N Seoul Tower. */
+  bukchonStreet: {
+    srcs: set("bukchon-hanok-street", [540, 800]),
+    width: 800,
+    height: 1207,
+    alt: "A quiet lane between hanok houses with curved tile roofs in Seoul, with N Seoul Tower in the distance",
+  },
+  /** Photo by Bundo Kim on Unsplash (-HaW6ZYwpHs) — corner café with a Korean sign. */
+  cafeCorner: {
+    srcs: set("seoul-cafe-corner", [700, 1200]),
+    width: 1200,
+    height: 714,
+    alt: "A small corner café with a wooden door, white tiles and a Korean sign on a quiet Seoul side street",
+  },
+  /** Photo by Nik V on Unsplash (9UHTL1aVV-E) — Myeongdong underground shopping center entrance. */
+  myeongdongStreet: {
+    srcs: set("myeongdong-street", [700, 1200]),
+    width: 1200,
+    height: 800,
+    alt: "A Seoul street corner by the Myeongdong underground shopping center entrance, with bicycles, buses and city buildings",
   },
 } satisfies Record<string, ArtImage>;

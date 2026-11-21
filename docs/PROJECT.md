@@ -21,7 +21,7 @@ selected: postcard.
   `artwork.ts` image catalogue; `lib/tally.ts` embed URL + submit-event check) · `privacy` (privacy notice).
 - Shared: `SiteHeader`, `SiteFooter`, `Wordmark`, `Picture` (responsive `<img srcset>`), `config/site.ts` (env-driven links), `lib/seo.ts`, `styles/globals.css` (tokens).
 - Routes: `/`, `/privacy/`, `404`, `/sitemap.xml`, `/robots.txt`,
-  `/opengraph-image` (1200×630 PNG share card, rendered at build with `src/shared/assets/` Manrope, OFL).
+  `/icon.png`, `/apple-icon.png`, `/opengraph-image` (1200×630 PNG share card, rendered at build with `src/shared/assets/` Manrope, OFL).
 
 ## Registration (Tally + Google Sheets)
 
@@ -69,7 +69,15 @@ serif display type, paper textures, brown palettes, ornate decoration.
   Originals stay outside the repo (owner's `Mail Club/` folder); `npm run images -- "<folder>"`
   (`scripts/optimize-images.mts`, sharp) crops, lifts the near-white background to pure white and writes two JPEG
   widths to `public/images/`. Placement: hero = postcard, Story = poster, Postcard section = stationery scene +
-  roof close-up, the four themes = crops (`Pieces.tsx`), share image = postcard. No third-party images.
+  roof close-up, share image = postcard.
+- Theme photos (owner's choice, 2026-11-22) from **Unsplash** (Unsplash License: free use, no attribution required;
+  credited in `artwork.ts`): 01 Places = Bukchon hanok lane (Jean Carlo Emer), 02 Seasons = Myeongdong street
+  (Nik V), 03 Culture & Everyday = Seoul corner café (Bundo Kim); 04 Postcards & Art = stationery crop. Sources in
+  the owner's Downloads; `npm run images -- "<Mail Club>" "<Downloads>"`.
+- CTA labels: header and hero primary button say **"Get a Free Postcard"** (owner, 2026-11-22).
+- **Logo / favicon** (owner, 2026-11-22): "Cherry Blossom Sunset Stamp Icon.png", cropped to the stamp by
+  `npm run images` → `public/images/logo-stamp-{96,192}.png` (wordmark in header/footer, share image),
+  `src/app/icon.png` (favicon, 128 px) and `src/app/apple-icon.png` (180 px on white for iOS).
 - No analytics or cookies at launch (privacy notice says so; update it if that changes). Tally may set its own cookies inside the embed.
 - Retention promised in the privacy notice: registrations (incl. addresses) while the project runs, deleted on request or when the project ends.
 
@@ -82,4 +90,4 @@ Planned: same as Clínica/Personal — `out/` → Nginx container behind Traefik
 
 Initial build on `main` (`4ee28a1`). On `feat/postcard-registration` (uncommitted, 2026-11-22): modern white/pastel
 visual refresh, domain + socials + contact email, MailerLite and `/welcome/` removed, Tally registration section +
-privacy rewrite. Tally form `4aKrAB` embedded (owner's decision). Real artwork in place; gradients removed. Awaiting: form cleanup in Tally, more varied artwork (themes reuse crops), DNS + deployment.
+privacy rewrite. Tally form `4aKrAB` embedded (owner's decision). Real artwork in place; gradients removed. Awaiting: form cleanup in Tally,  DNS + deployment.

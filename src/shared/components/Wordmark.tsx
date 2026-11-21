@@ -1,10 +1,11 @@
 import Link from "next/link";
 
-/** "KOREA MAIL CLUB" wordmark: spaced uppercase sans with a small sun mark. */
+/** Brand: the cherry blossom stamp + "KOREA MAIL CLUB" in spaced uppercase sans. */
 export function Wordmark({ className = "" }: { className?: string }) {
   return (
     <Link href="/" className={`inline-flex items-center gap-2.5 font-display font-bold uppercase tracking-[0.18em] text-ink ${className}`}>
-      <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-peach ring-[3px] ring-sun/70" />
+      {/* eslint-disable-next-line @next/next/no-img-element -- static export, pre-sized file */}
+      <img src="/images/logo-stamp-96.png" alt="" width={96} height={96} className="h-8 w-8 shrink-0" />
       Korea Mail Club
     </Link>
   );

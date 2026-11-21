@@ -24,7 +24,7 @@ export function SiteHeader() {
             </Link>
           ))}
           <Link href="/#join" className="rounded-lg bg-ink px-4 py-2 text-[0.8rem] font-semibold text-white transition-colors hover:bg-[#2e3650]">
-            Join the Club
+            Get a Free Postcard
           </Link>
         </nav>
       </div>

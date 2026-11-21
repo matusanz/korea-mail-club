@@ -17,7 +17,7 @@ export function Hero() {
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a href="#join" className="btn btn-primary">
-              Join the Mail Club
+              Get a Free Postcard
             </a>
             <a href="#story" className="btn btn-ghost">
               Discover Our Story

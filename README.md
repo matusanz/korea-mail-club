@@ -22,7 +22,7 @@ npm run check      # lint + typecheck + tests + build + smoke — must pass befo
 |---|---|
 | `npm run build` | Static export to `out/` |
 | `npm run test` | Vitest unit tests (Tally embed URL + submit event, config) |
-| `npm run images -- "<folder>"` | Rebuilds `public/images/` from the owner's original artwork (crop, white background, two widths) |
+| `npm run images -- "<Mail Club>" "<Downloads>"` | Rebuilds `public/images/` from the original artwork and photos (crop, white background for illustrations, two widths) |
 | `npm run smoke` | Checks `out/`: every page exists, Tally registration form embedded, no placeholders or retired integrations |
 
 ## Deployment

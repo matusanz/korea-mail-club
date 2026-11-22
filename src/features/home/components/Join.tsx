@@ -12,25 +12,25 @@ export function Join() {
     <section id="join" aria-labelledby="join-title">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
         <div className="mx-auto max-w-2xl rounded-3xl border border-line bg-white px-6 py-12 shadow-card sm:px-14 sm:py-16">
-
-          <div className="relative text-center">
+          <div className="text-center">
             <p className="eyebrow">Free to register</p>
             <h2 id="join-title" className="mt-4 text-4xl sm:text-5xl">
               Get a postcard from Korea.
             </h2>
-            <div className="mx-auto mt-6 max-w-lg space-y-4 text-slate">
-              <p>
-                I’d love to send some of my postcards to people around the world. Share your name, email and mailing
-                address to register for a real postcard from South Korea.
-              </p>
-              <p>
-                Registration is free, but I can’t send a postcard to everyone, so receiving one isn’t guaranteed. Your
-                address is used only to send your postcard.
-              </p>
-            </div>
+            <p className="mx-auto mt-5 max-w-md text-slate">
+              Register to receive a real postcard from South Korea. I can’t send one to everyone, and your address is only
+              used for delivery.
+            </p>
           </div>
 
-          <div className="relative mt-8">
+          {/* divider between the intro and the (multi-page) Tally form */}
+          <div aria-hidden="true" className="mt-10 flex items-center gap-4">
+            <span className="h-px flex-1 bg-line" />
+            <span className="h-2.5 w-2.5 rounded-full bg-peach ring-4 ring-sun/50" />
+            <span className="h-px flex-1 bg-line" />
+          </div>
+
+          <div id="join-form" className="mt-6 scroll-mt-20">
             {formId ? (
               <TallyForm formId={formId} title="Get a postcard from Korea — registration form" />
             ) : (
@@ -49,7 +49,7 @@ export function Join() {
             )}
           </div>
 
-          <p className="relative mt-6 text-center text-xs text-slate">
+          <p className="mt-6 text-center text-xs text-slate">
             Free, no spam. You can ask me to delete your details anytime —{" "}
             <Link href="/privacy/" className="font-medium text-ink underline underline-offset-4">
               privacy notice

@@ -46,7 +46,7 @@ Replaced MailerLite (owner, 2026-11-22). Setup and form specs: [`docs/forms/READ
 - Public identity (owner, 2026-11-22): site `https://www.koreamailclub.com` (canonical host, with `www`),
   Instagram `https://www.instagram.com/koreamailclub`, Facebook `https://www.facebook.com/profile.php?id=61596515290347`
   — defaults in `src/shared/config/site.ts`, overridable by env vars. Contact email
-  `info@koreamailclub.com`. Links are hidden when empty (only http(s)/valid emails accepted).
+  `hello@koreamailclub.com`. Links are hidden when empty (only http(s)/valid emails accepted).
 - Indexing: `SITE_INDEXABLE=true` only for production builds; otherwise `noindex` + `robots.txt Disallow: /`.
 - Accessibility: semantic sections, skip link, labelled inputs with `aria-invalid`/`aria-describedby`, focus moves
   to errors/success, visible focus rings, reduced motion respected, AA text contrast.

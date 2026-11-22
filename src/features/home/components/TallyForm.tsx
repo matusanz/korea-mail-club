@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { isTallySubmit, tallyEmbedUrl, tallyPublicUrl } from "../lib/tally";
+import { isTallyPageChange, isTallySubmit, tallyEmbedUrl, tallyPublicUrl } from "../lib/tally";
 
 const EMBED_SCRIPT = "https://tally.so/widgets/embed.js";
 
@@ -45,6 +45,14 @@ export function TallyForm({ formId, title }: { formId: string; title: string }) 
     }, 2500);
     function onMessage(e: MessageEvent) {
       if (isTallySubmit(e.origin, e.data, formId)) setSubmitted(true);
+      // Multi-page form: bring the new step's top into view instead of leaving the visitor mid-page.
+      else if (isTallyPageChange(e.origin, e.data, formId)) {
+        const top = frameRef.current?.getBoundingClientRect().top ?? 0;
+        if (top < 0 || top > window.innerHeight * 0.4) {
+          const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          document.getElementById("join-form")?.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+        }
+      }
     }
     window.addEventListener("message", onMessage);
     return () => {

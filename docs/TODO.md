@@ -4,23 +4,22 @@ Legend: 👤 needs the owner · 🛠 development work
 
 ## Current task
 
-- None. Branch: — (`main` = `1e81cc3` + this docs update; local only, no GitHub remote yet).
+- **Registration copy + VPS launch prompt** (`feat/registration-copy`, 2026-11-22).
 
 ## Next priorities (launch)
 
-1. [ ] 👤 **Tally cleanup** for form `4aKrAB` (`docs/forms/README.md`): delete "Untitled checkboxes field", make
-       State optional, news checkbox optional/unticked, design (Inter, navy `#1D2335` button), connect the private
-       Google Sheet "Korea Mail Club — Registrations".
-2. [ ] 👤 **DNS:** A records for `koreamailclub.com` and `www.koreamailclub.com` → the VPS (none exist yet,
-       checked 2026-11-22).
-3. [ ] 👤 **Email:** MX records so `info@koreamailclub.com` receives mail (footer + privacy notice use it).
-4. [ ] 🛠 **VPS setup + first release** (with approval, `deploy/README.md`): site folder `/opt/apps/korea-mail/`,
-       Nginx container + Traefik router for both hosts (apex → 301 `www`), `korea` case in `~/bin/deploy-site`,
-       `SITE_INDEXABLE=true ~/bin/deploy-site korea`.
-5. [ ] 🛠 **Live checks:** routes/404/`/privacy` 301, `/opengraph-image` as `image/png`, favicon; Tally embed in a
+1. [x] 👤 **Tally cleanup** for form `4aKrAB` + Google Sheet (owner, 2026-11-22).
+2. [ ] 👤 **DNS (Hostinger):** `koreamailclub.com` and `www` currently point to Hostinger's parking IP
+       `2.57.91.91` (checked 2026-11-22) → change the apex A record to the VPS IP and `www` to the same (A or CNAME).
+3. [ ] 👤 **Email:** MX records so `hello@koreamailclub.com` receives mail (footer + privacy notice use it).
+4. [ ] 👤 **VPS setup:** give `deploy/VPS-LAUNCH-PROMPT.md` to the assistant with VPS access (after DNS).
+5. [ ] 🛠 **`deploy-site korea`** case on the deployment Mac + first release `SITE_INDEXABLE=true ~/bin/deploy-site korea`
+       (with approval).
+6. [ ] 🛠 **Live checks:** routes/404/`/privacy` 301, `/opengraph-image` as `image/png`, favicon; Tally embed in a
        real browser (desktop, iPhone Safari, Instagram in-app browser) — height, blending, "Thank you for joining!"
        on submit; one real test registration reaches the Google Sheet; Facebook Sharing Debugger preview.
-6. [ ] 🛠 **GitHub:** create private repo, push `main` + branches (with approval); CI in `.github/workflows/ci.yml`.
+7. [ ] 🛠 **GitHub** `https://github.com/matusanz/korea-mail-club` (public; remote `origin` added 2026-11-22): merge
+       its one-line "Initial commit" README into `main` (keep ours), push `main` + branches (with approval).
 
 ## Later / optional
 
@@ -35,11 +34,11 @@ Legend: 👤 needs the owner · 🛠 development work
 - Modern white/navy/pastel design (Manrope + Inter), no gradients.
 - Registration: Tally form `4aKrAB` + Google Sheets (owner's decision: addresses from everyone); MailerLite removed.
 - Owner's palace illustrations, Unsplash theme photos, cherry blossom stamp logo/favicon (`npm run images`).
-- Domain `www.koreamailclub.com`, Instagram, Facebook, `info@koreamailclub.com` configured.
+- Domain `www.koreamailclub.com`, Instagram, Facebook, `hello@koreamailclub.com` configured.
 
 ## Blockers / decisions required
 
-- Tally cleanup, DNS + MX records (owner).
+- DNS A records → VPS, MX records (owner).
 
 ## Last session
 

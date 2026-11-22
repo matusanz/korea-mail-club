@@ -7,6 +7,10 @@ pattern as Clínica and Personal. No Node.js, no secrets, no database in product
 
 ## First setup (once, with approval)
 
+Server side: hand [`VPS-LAUNCH-PROMPT.md`](VPS-LAUNCH-PROMPT.md) to the assistant with VPS access (it mirrors the
+Clínica layout: folders, Nginx, Compose + Traefik labels incl. the apex → `www` redirect, checks, `SITE.md`).
+
+
 1. **DNS:** A records for `koreamailclub.com` and `www.koreamailclub.com` → the VPS. The canonical URL is already
    built in (`src/shared/config/site.ts`). Traefik: route both hosts; redirect the apex to `https://www.koreamailclub.com`.
 2. **Site draft on the VPS** (VPS deployment standard v2, inactive until approved):

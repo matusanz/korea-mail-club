@@ -8,7 +8,7 @@ const confirmed = {
   url: "https://www.koreamailclub.com",
   instagram: "https://www.instagram.com/koreamailclub",
   facebook: "https://www.facebook.com/profile.php?id=61596515290347",
-  email: "info@koreamailclub.com",
+  email: "hello@koreamailclub.com",
   /**
    * Public postcard-registration Tally form "A little piece of Korea, delivered to you." (owner, 2026-11-22).
    * It collects name, email and full postal address from every registrant (owner's decision).

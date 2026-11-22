@@ -79,18 +79,25 @@ serif display type, paper textures, brown palettes, ornate decoration.
 - **Logo / favicon** (owner, 2026-11-22): "Cherry Blossom Sunset Stamp Icon.png" (second source folder), cropped to the stamp by
   `npm run images` → `public/images/logo-stamp-{96,192}.png` (wordmark in header/footer, share image),
   `src/app/icon.png` (favicon, 128 px) and `src/app/apple-icon.png` (180 px on white for iOS).
-- No analytics or cookies at launch (privacy notice says so; update it if that changes). Tally may set its own cookies inside the embed.
+- **Analytics (owner, 2026-11-22):** Google Tag Manager `GTM-WG4L52DL` (`src/shared/config/gtm.ts`) loads Google
+  Analytics, Meta Pixel and TikTok Pixel for **every visitor, no consent banner** (owner's decision, 2026-11-22). The
+  privacy notice ("Cookies, analytics and advertising") names all three and how to limit them — keep it in sync if tags
+  change. Tally may set its own cookies inside the embed. Tags live in the GTM container (no IDs in code), all on the
+  *All Pages* trigger. Never send form contents to the pixels (the Tally form is an iframe).
 - Retention promised in the privacy notice: registrations (incl. addresses) while the project runs, deleted on request or when the project ends.
 
 ## Deployment
 
-Planned: same as Clínica/Personal — `out/` → Nginx container behind Traefik on the Hostinger VPS, released with
-`~/bin/deploy-site korea`. Domain: `www.koreamailclub.com` (DNS/VPS not set up yet). Runbook: [`deploy/README.md`](../deploy/README.md).
+Same as Clínica/Personal — `out/` → Nginx container `korea-mail-web-1` (nginx:alpine) behind Traefik on the Hostinger
+VPS (`/opt/apps/korea-mail/web/current`), HTTPS, apex → `www` 301. Domain: `www.koreamailclub.com`.
+Release (from this repo, with approval): `npm run check`, then `SITE_INDEXABLE=true ~/bin/deploy-site korea`;
+rollback: `~/bin/deploy-site korea rollback`. Runbook: [`deploy/README.md`](../deploy/README.md).
 
 ## Current state
 
-*Pre-launch, not deployed.* `main` holds the complete site (merged 2026-11-22, `1e81cc3`): six-section landing page
-with the approved copy, modern white/navy/pastel design, Tally registration (`4aKrAB` → Google Sheets), privacy
-notice, owner's illustrations + Unsplash photos, stamp logo/favicon, share image. `npm run check` passes.
-Local-only repository (no GitHub remote yet). Launch blockers: Tally form cleanup, DNS + MX records, VPS setup
-(`docs/TODO.md`).
+*Live* at `https://www.koreamailclub.com` (indexable; robots + sitemap served). `main` on GitHub holds the complete
+site: six-section landing page with the approved copy, modern white/navy/pastel design, Tally registration
+(`4aKrAB` → Google Sheets), privacy notice, owner's illustrations + Unsplash photos (WebP + JPEG fallback), stamp
+logo/favicon, share image, `/llms.txt`, Google Tag Manager (GA4, Meta Pixel, TikTok Pixel for every visitor, no
+banner). `npm run check` passes. Not yet released: GTM/analytics, PageSpeed fixes and `/llms.txt` (merged
+2026-11-22) — see `docs/TODO.md`.

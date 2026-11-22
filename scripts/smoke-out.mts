@@ -22,7 +22,7 @@ if (!failures.length) {
   if (!home.includes("Get a postcard from Korea.")) failures.push("home lacks the postcard registration section");
   if (!home.includes('property="og:image"')) failures.push("home lacks og:image");
   if (!/data-tally-src="https:\/\/tally\.so\/embed\/[A-Za-z0-9]+\?/.test(home)) failures.push("Tally registration form is not embedded");
-  if (!/src="https:\/\/www\.googletagmanager\.com\/gtm\.js\?id=GTM-[A-Z0-9]+"/.test(home)) failures.push("home lacks the GTM tag");
+  if (!/'https:\/\/www\.googletagmanager\.com\/gtm\.js\?id=GTM-[A-Z0-9]+'/.test(home)) failures.push("home lacks the GTM tag");
   if (!/<source type="image\/webp" srcSet="\/images\/[^"]+\.webp \d+w/.test(home)) failures.push("home lacks WebP image sources");
   if (!read("llms.txt").startsWith("# Korea Mail Club")) failures.push("llms.txt lacks its title");
   if (!read("sitemap.xml").includes("/privacy/")) failures.push("sitemap lacks /privacy/");

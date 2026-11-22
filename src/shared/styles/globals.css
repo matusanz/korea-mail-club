@@ -9,11 +9,11 @@
   --color-white: #ffffff;
   --color-mist: #f7f7f7; /* secondary surfaces */
   --color-ink: #1d2335; /* navy text */
-  --color-slate: #697190; /* secondary text (AA on white and mist) */
+  --color-slate: #676f8d; /* secondary text: AA on white (4.96) and mist (4.63) */
   --color-peach: #e7b89c;
   --color-pink: #d3b2ad;
   --color-sun: #f3db95;
-  --color-accent: #b4664b; /* peach deepened for small text/links: AA on white */
+  --color-accent: #a25c44; /* peach deepened for small text/links: AA on white (5.06) and mist (4.72) */
   --color-line: #e9eaee;
 
   --font-sans: var(--font-inter), "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;

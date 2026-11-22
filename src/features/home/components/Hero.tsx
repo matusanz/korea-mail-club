@@ -32,7 +32,7 @@ export function Hero() {
         <div className="rise rise-delay mx-auto w-full max-w-[38rem]">
           <Picture
             image={artwork.heroPostcard}
-            sizes="(min-width: 1024px) 600px, (min-width: 640px) 80vw, 100vw"
+            sizes="(min-width: 1024px) 600px, (min-width: 640px) min(calc(100vw - 4rem), 38rem), calc(100vw - 2.5rem)"
             priority
             className="h-auto w-full"
           />

@@ -2,7 +2,7 @@
  * Korea Mail Club images. Illustrations: the owner's artwork (supplied 2026-11-22; originals kept in
  * "Mail Club/" on the owner's Mac). Photos: chosen by the owner from Unsplash (Unsplash License:
  * free to use, no attribution required — credited here anyway). Web versions in public/images/
- * (JPEG, two widths each, `npm run images`).
+ * (WebP + JPEG fallback, two or three widths each, `npm run images`).
  * Add new artwork the same way: export two widths, then add an entry here with an accurate alt.
  */
 import type { ArtImage } from "@/shared/components/Picture";
@@ -12,7 +12,7 @@ const set = (name: string, widths: number[]) => widths.map((w) => ({ w, src: `/i
 export const artwork = {
   /** "Sunset Palace Gate Postcard" — tilted postcard on white, cropped to the card. */
   heroPostcard: {
-    srcs: set("postcard-gate-sunset", [640, 1008]),
+    srcs: set("postcard-gate-sunset", [640, 800, 1008]),
     width: 1008,
     height: 752,
     alt: "Illustrated postcard of Gwanghwamun Gate at sunset, with a golden sun, pink clouds and blue mountains behind the palace roofs",

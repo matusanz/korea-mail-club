@@ -5,6 +5,9 @@ Legend: 👤 needs the owner · 🛠 development work
 ## Current task
 
 - **Google Tag Manager** `GTM-WG4L52DL` in the root layout (`feat/gtm`, 2026-11-22).
+- **PageSpeed fixes + llms.txt** (2026-11-22, same working tree): WebP images with JPEG fallback (`<picture>`),
+  800px hero width + exact `sizes`, WebP logo, CSS inlined (`experimental.inlineCss`), `slate`/`accent` darkened for
+  AA contrast on `mist`, `/llms.txt`. Needs a browser check at 390/768/1440px and a PageSpeed re-run after release.
 
 ## Next priorities (launch)
 
@@ -25,6 +28,8 @@ Legend: 👤 needs the owner · 🛠 development work
 ## Later / optional
 
 - [ ] 👤 A truly seasonal photo for "Seasons & Moments" (now a Myeongdong street photo).
+- [ ] 👤 Unsplash photo originals are gone: their WebP files were re-encoded from the web JPEGs. Re-download them
+      (IDs in `src/features/home/artwork.ts`) for best quality, then `npm run images`.
 - [ ] 👤 Keep the original photos/stamp somewhere stable (they left Downloads) so `npm run images` can re-export them.
 - [ ] 👤 Privacy notice: confirm wording; decide whether to name the person responsible (controller) for GDPR.
 - [ ] 👤 Delete merged/empty branches `feat/postcard-registration`, `feat/visual-refresh` (needs approval).

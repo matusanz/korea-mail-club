@@ -4,8 +4,10 @@ import Link from "next/link";
 export function Wordmark({ className = "" }: { className?: string }) {
   return (
     <Link href="/" className={`inline-flex items-center gap-2.5 font-display font-bold uppercase tracking-[0.18em] text-ink ${className}`}>
-      {/* eslint-disable-next-line @next/next/no-img-element -- static export, pre-sized file */}
-      <img src="/images/logo-stamp-96.png" alt="" width={96} height={96} className="h-8 w-8 shrink-0" />
+      <picture className="shrink-0">
+        <source type="image/webp" srcSet="/images/logo-stamp-64.webp 2x, /images/logo-stamp-96.webp 3x" />
+        <img src="/images/logo-stamp-96.png" alt="" width={96} height={96} className="block h-8 w-8" />
+      </picture>
       Korea Mail Club
     </Link>
   );

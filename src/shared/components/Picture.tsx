@@ -1,6 +1,7 @@
 /**
- * Responsive image for the owner's artwork (static export: pre-sized JPEGs in public/images/,
- * picked by the browser through srcset). Width/height keep the layout stable while loading.
+ * Responsive image for the owner's artwork (static export: pre-sized files in public/images/,
+ * picked by the browser through srcset). Every JPEG has a WebP twin (`npm run images`), served first;
+ * the JPEG is the fallback. Width/height keep the layout stable while loading.
  */
 export type ArtImage = {
   /** Available widths, smallest first, e.g. [{ w: 640, src: "/images/x-640.jpg" }, …]. */
@@ -23,20 +24,23 @@ type Props = {
 
 export function Picture({ image, sizes, className = "", style, priority = false, decorative = false }: Props) {
   const largest = image.srcs[image.srcs.length - 1];
+  const srcSet = (ext: string) => image.srcs.map((s) => `${s.src.replace(/\.jpg$/, ext)} ${s.w}w`).join(", ");
   return (
-    // eslint-disable-next-line @next/next/no-img-element -- static export, pre-sized files
-    <img
-      src={largest.src}
-      srcSet={image.srcs.map((s) => `${s.src} ${s.w}w`).join(", ")}
-      sizes={sizes}
-      width={image.width}
-      height={image.height}
-      alt={decorative ? "" : image.alt}
-      loading={priority ? "eager" : "lazy"}
-      fetchPriority={priority ? "high" : undefined}
-      decoding="async"
-      className={className}
-      style={style}
-    />
+    <picture>
+      <source type="image/webp" srcSet={srcSet(".webp")} sizes={sizes} />
+      <img
+        src={largest.src}
+        srcSet={srcSet(".jpg")}
+        sizes={sizes}
+        width={image.width}
+        height={image.height}
+        alt={decorative ? "" : image.alt}
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : undefined}
+        decoding="async"
+        className={className}
+        style={style}
+      />
+    </picture>
   );
 }

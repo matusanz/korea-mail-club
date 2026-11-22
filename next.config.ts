@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   // No image server in a static export; images in public/ are pre-sized.
   images: { unoptimized: true },
+  // Inline the (small) Tailwind CSS into each page instead of a render-blocking stylesheet request.
+  experimental: { inlineCss: true },
 };
 
 export default nextConfig;

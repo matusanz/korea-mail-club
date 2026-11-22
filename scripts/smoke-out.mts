@@ -10,7 +10,7 @@ const out = join(process.cwd(), "out");
 const failures: string[] = [];
 const read = (p: string) => readFileSync(join(out, p), "utf8");
 
-for (const f of ["index.html", "404.html", "privacy/index.html", "robots.txt", "sitemap.xml", "opengraph-image"]) {
+for (const f of ["index.html", "404.html", "privacy/index.html", "robots.txt", "sitemap.xml", "llms.txt", "opengraph-image"]) {
   if (!existsSync(join(out, f))) failures.push(`missing out/${f}`);
 }
 if (existsSync(join(out, "welcome"))) failures.push("retired /welcome/ page is still exported");
@@ -23,6 +23,8 @@ if (!failures.length) {
   if (!home.includes('property="og:image"')) failures.push("home lacks og:image");
   if (!/data-tally-src="https:\/\/tally\.so\/embed\/[A-Za-z0-9]+\?/.test(home)) failures.push("Tally registration form is not embedded");
   if (!/src="https:\/\/www\.googletagmanager\.com\/gtm\.js\?id=GTM-[A-Z0-9]+"/.test(home)) failures.push("home lacks the GTM tag");
+  if (!/<source type="image\/webp" srcSet="\/images\/[^"]+\.webp \d+w/.test(home)) failures.push("home lacks WebP image sources");
+  if (!read("llms.txt").startsWith("# Korea Mail Club")) failures.push("llms.txt lacks its title");
   if (!read("sitemap.xml").includes("/privacy/")) failures.push("sitemap lacks /privacy/");
 
   for (const page of ["index.html", "privacy/index.html", "404.html"]) {

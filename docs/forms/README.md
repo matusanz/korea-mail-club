@@ -28,6 +28,10 @@ text (label e.g. "Register for a postcard"); input border `#D9DBE3`; accent `#E7
 hides Tally's title (`hideTitle=1&transparentBackground=1`), so the page's own heading shows instead. Remove "Made
 with Tally" branding if your plan allows.
 
+Multi-page: the form can have several pages (e.g. name/email, then address). On every page change the site scrolls
+the top of the form back into view (`Tally.FormPageView` event); keep the intro on the website short — the form's
+own pages carry the detailed instructions.
+
 Settings: enable "Prevent duplicate submissions" if available; optional email notifications to
 `info@koreamailclub.com`.
 

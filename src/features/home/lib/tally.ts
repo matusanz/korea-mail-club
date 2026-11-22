@@ -1,6 +1,6 @@
 /**
  * Tally embed helpers (docs/forms/README.md). The form itself, its fields and the Google Sheets
- * connection live in Tally; the site only embeds it and reacts to the submit event.
+ * connection live in Tally; the site only embeds it and reacts to its events.
  */
 
 /** Embed URL: no Tally title (the page has its own), transparent background, auto height, events on. */
@@ -18,22 +18,37 @@ export function tallyPublicUrl(formId: string): string {
   return `https://tally.so/r/${formId}`;
 }
 
+type TallyMessage = { event: string; payload: { formId?: unknown; page?: unknown } };
+
 /**
- * True when a `message` event is Tally's "form submitted" event for this form.
+ * Parses a `message` event from the Tally iframe for this form, or returns null.
  * Tally posts JSON strings like {"event":"Tally.FormSubmitted","payload":{"formId":"…",…}}.
  */
-export function isTallySubmit(origin: string, data: unknown, formId: string): boolean {
-  if (origin !== "https://tally.so") return false;
+export function readTallyMessage(origin: string, data: unknown, formId: string): TallyMessage | null {
+  if (origin !== "https://tally.so") return null;
   let message: unknown = data;
   if (typeof data === "string") {
-    if (!data.includes("Tally.FormSubmitted")) return false;
+    if (!data.includes("Tally.")) return null;
     try {
       message = JSON.parse(data);
     } catch {
-      return false;
+      return null;
     }
   }
-  if (!message || typeof message !== "object") return false;
-  const { event, payload } = message as { event?: unknown; payload?: { formId?: unknown } };
-  return event === "Tally.FormSubmitted" && (payload?.formId === undefined || payload.formId === formId);
+  if (!message || typeof message !== "object") return null;
+  const { event, payload } = message as { event?: unknown; payload?: unknown };
+  if (typeof event !== "string" || !event.startsWith("Tally.")) return null;
+  const p = (payload && typeof payload === "object" ? payload : {}) as TallyMessage["payload"];
+  if (p.formId !== undefined && p.formId !== formId) return null;
+  return { event, payload: p };
+}
+
+export function isTallySubmit(origin: string, data: unknown, formId: string): boolean {
+  return readTallyMessage(origin, data, formId)?.event === "Tally.FormSubmitted";
+}
+
+/** True when the visitor moved to another page of a multi-page form (page 2 onwards, or back). */
+export function isTallyPageChange(origin: string, data: unknown, formId: string): boolean {
+  const m = readTallyMessage(origin, data, formId);
+  return m?.event === "Tally.FormPageView" && typeof m.payload.page === "number" && m.payload.page > 1;
 }

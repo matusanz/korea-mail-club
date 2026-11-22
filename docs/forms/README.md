@@ -15,7 +15,7 @@ Fields today: First & Last name*, Email*, Address line 1*, Address line 2, ZIP/P
 Country*, consent* "I understand my address will only be used to arrange postcard delivery.", an untitled checkbox
 field, and "I'd also like occasional news about Korea Mail Club." (optional).
 
-Fix in Tally before launch:
+Fix in Tally before launch (done by the owner, 2026-11-22; the form is now multi-page):
 
 - **Delete the "Untitled checkboxes field"** — it shows to visitors with no label.
 - Make **State** optional (many countries have none).
@@ -33,7 +33,7 @@ the top of the form back into view (`Tally.FormPageView` event); keep the intro 
 own pages carry the detailed instructions.
 
 Settings: enable "Prevent duplicate submissions" if available; optional email notifications to
-`info@koreamailclub.com`.
+`hello@koreamailclub.com`.
 
 **Integrations → Google Sheets:** connect to a private sheet **"Korea Mail Club — Registrations"** (only your Google
 account; never "anyone with the link").

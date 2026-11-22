@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { safeEmail, safeTallyId, safeUrl } from "./site";
+import { safeEmail, safeGtmId, safeTallyId, safeUrl } from "./site";
 
 describe("config sanitizers", () => {
   it("accepts only http(s) URLs", () => {
@@ -16,5 +16,11 @@ describe("config sanitizers", () => {
     expect(safeTallyId("4aKrAB")).toBe("4aKrAB");
     expect(safeTallyId("4aKrAB?x=1")).toBe("");
     expect(safeTallyId("")).toBe("");
+  });
+  it("accepts only GTM container IDs", () => {
+    expect(safeGtmId(" GTM-WG4L52DL ")).toBe("GTM-WG4L52DL");
+    expect(safeGtmId("GTM-WG4L52DL&x=1")).toBe("");
+    expect(safeGtmId("G-ABC123")).toBe("");
+    expect(safeGtmId("")).toBe("");
   });
 });

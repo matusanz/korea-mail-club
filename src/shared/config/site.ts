@@ -14,6 +14,8 @@ const confirmed = {
    * It collects name, email and full postal address from every registrant (owner's decision).
    */
   tallyRegistrationFormId: "4aKrAB",
+  /** Google Tag Manager container (owner, 2026-11-22). */
+  gtmId: "GTM-WG4L52DL",
 };
 
 function clean(value: string | undefined): string {
@@ -58,4 +60,14 @@ export function safeTallyId(value: string | undefined): string {
 
 export const tallyConfig = {
   registrationFormId: safeTallyId(process.env.NEXT_PUBLIC_TALLY_FORM_ID || confirmed.tallyRegistrationFormId),
+} as const;
+
+/** GTM container IDs look like "GTM-XXXXXXX"; anything else counts as "not configured" (no tag is loaded). */
+export function safeGtmId(value: string | undefined): string {
+  const v = clean(value);
+  return /^GTM-[A-Z0-9]{4,12}$/.test(v) ? v : "";
+}
+
+export const analyticsConfig = {
+  gtmId: safeGtmId(process.env.NEXT_PUBLIC_GTM_ID || confirmed.gtmId),
 } as const;
